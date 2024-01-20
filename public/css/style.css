@@ -1,12 +1,13 @@
+
 body {
     width: 100%;
-    height: auto;
-    background-color: rgb(208, 215, 117);
+    height: 900px;
+    padding-bottom: 10%;
+    background-color: rgb(212, 151, 91);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .textWater {
@@ -17,12 +18,17 @@ body {
 
 #jar{
     width: 20%;
-    height: 500px;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    gap:50%;
     border: 5px dotted rgba(234, 83, 242, 0.641);
-    border-radius: 0% 0% 20% 20%;
-    background-color: rgba(240, 248, 255, 0.721);
+    border-radius: 0px 0px 47px 47px;
+    background-color: rgba(251, 251, 251, 0.721);
     position: relative;
+    box-shadow: 0px 1px 15px 1px rgb(255, 200, 0);
+    overflow: hidden; /* hide the element that will go oustide the jar*/
+    bottom: 0;
 }
 
 .actualPercent{
@@ -34,19 +40,36 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
+
+}
+
+.remainPercent{
+    width: 100%;
+    height:10%;
+    color:white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
 }
 
 .progressingPercent{
     width: 100%;
-    height:12%;
     position: absolute;
     background-color: red;
+    height: 0;
+    bottom: 0;
 }
 
+h1{
+    color:rgb(247, 241, 219)
+}
 h1,p{
-    color:white;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .allJar{
@@ -69,15 +92,18 @@ h1,p{
 }
 
 .ingredients{
-    width: 120px;
+    width: 140px;
     height: 170px;
     border:2px solid black;
+    color:black;
+    background-color: rgb(255, 249, 240);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap:10px;
     flex-direction: column;
+    border-radius:0px 0px 40px 40px;
 }
 
 .buttons{
@@ -92,10 +118,10 @@ button{
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    border: 2px solid darkolivegreen;
+    border: 2px solid rgb(171, 135, 230);
     font-size: 30px;
-    background-color: rgb(206, 241, 206);
-    color: rgb(98, 162, 98);
+    background-color: rgb(167, 155, 199);
+    color: rgb(107, 71, 8);
 }
 button:disabled{
     background-color: white;

@@ -1,97 +1,95 @@
-// let bigJar = document.querySelector("#jar")
-// let cupJar = document.getElementsByClassName("ingredients")
-
-let actualJar = document.querySelectorAll("div")[1] //partie jar vide
-
 //Buttons + and -
-// let buttonAdding = document.querySelector(".add") //teste avec le 1er
-
 let allbuttonAdding = document.querySelectorAll(".add")
 console.log(allbuttonAdding);
-// let buttonRemoving = document.querySelector(".remove")
 let allbuttonRemoving = document.querySelectorAll(".remove")
 console.log(allbuttonRemoving);
 
 //Content of jar
 let cupIngredient = 0
-let mlIngredient = 0
 let percentIngredient = 0
+let maxrestant = 100
 
 //Jar : container
-let maxCup;
-let minCup;
+let maxCup = 8;
+let minCup = 0;
 
 //Actual content
 let actualContentCup = document.querySelector(".actualPercent")
-let actualContentMl = document.querySelector(".actualPercent")
+// let actualContentMl = document.querySelector(".actualPercent")
 let actualContentPercent = document.querySelector(".actualPercent")
 let levelPercent = document.querySelector(".progressingPercent")
+let remain = document.querySelector(".remainPercent")
 
-
+//Color blend
 let colorFillin = ["#FF5733","#FFFF33","#88883C","#4DBAE2","#4D62E2",'#68E24D',"#16401C","#FA6D96"]
 
-function randomColorJar() {
-    let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
-    return colorFillin[rainbow]
-}
+// function randomColorJar() {
+//     let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
+//     return colorFillin[rainbow]
+// }
 
 
 //Addlistener : adding/removing with click 
 allbuttonAdding.forEach(element =>{
     element.addEventListener('click', (adding))
-    maxCup=8
-    minCup = 0
-    levelPercent.style.backgroundColor=randomColorJar();
+    function randomColorJar() {
+        let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
+        return colorFillin[rainbow]
+    }
+    levelPercent.style.backgroundColor= randomColorJar()
+    randomColorJar()
 })
 
 allbuttonRemoving.forEach(index => {
     index.addEventListener('click', (removing))
-    maxCup=8
-    minCup = 0
 })
 
+
+// function restant() {
+//     left = 100
+//     remain.innerText = (`${left}` - `${percentIngredient}%`)
+//     return [remain.innerText];
+// }
 
 //Functions : adding / removing
 function adding() {
     cupIngredient ++;
-    mlIngredient +=125;
     percentIngredient = (cupIngredient/maxCup)*100;
+    left = 100
 
     //Actual fill in
-    actualContentCup.textContent = `${cupIngredient/8}/`;
-    actualContentMl.textContent = `${mlIngredient/1000}`;
+    actualContentCup.textContent = `${cupIngredient/8}`;
     actualContentPercent.textContent = `${percentIngredient}%`;
     levelPercent.style.height = `${percentIngredient}%` //assigner la hauteur de la jar de progression au pourcentage ajouté (100% = jar complète)
-
-    console.log(cupIngredient,mlIngredient,percentIngredient);
+    remain.innerText = (`${left}` - `${percentIngredient}`)
+    
+    console.log(cupIngredient,percentIngredient);
+    console.log(remain.innerText);
 
     if (cupIngredient === maxCup) { //stop l'action du bouton(rendu inactif) quand on a atteint le max
         allbuttonAdding.forEach(element => {
             element.disabled = true
         });
         levelPercent.style.width="99%"
-        levelPercent.style.borderRadius ="0px 0px 50px 50px"
-
-
+    
     } else {
         allbuttonRemoving.forEach(element => {
             element.disabled = false
         });
-        // element.disabled = false //ok appuyer dessus (désactivation du bouton n'est pas activé)
     }
 }
 
 function removing() {
     cupIngredient --;
-    mlIngredient -=125;
     percentIngredient = (cupIngredient/maxCup)*100;
 
     //Removing fill in
-    actualContentCup.textContent = `${cupIngredient/8}/`;
-    actualContentMl.textContent = `${mlIngredient/1000}`;
+    actualContentCup.textContent = `${cupIngredient/8}`;
     actualContentPercent.textContent = `${percentIngredient}%`;
     levelPercent.style.height = `${percentIngredient}%` //assigner la hauteur de la jar de progression au pourcentage ajouté (100% = jar complète)
-    console.log(cupIngredient,mlIngredient,percentIngredient);
+    remain.textContent = `${left}` - `${percentIngredient}`
+
+    console.log(cupIngredient,percentIngredient);
 
     if (cupIngredient == minCup) { //stop l'action du bouton(rendu inactif) quand on a atteint le max
         allbuttonRemoving.forEach(element => {
@@ -103,7 +101,6 @@ function removing() {
         allbuttonAdding.forEach(element => {
             element.disabled = false
         });
-        // element.disabled = true //ok appuyer dessus pour ajouter
     }
 
 }
