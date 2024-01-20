@@ -51,8 +51,6 @@ h1,p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
 .allJar{
     width: 50% ;
     height:250px;
@@ -100,6 +98,9 @@ button{
     font-size: 30px;
     background-color: rgb(206, 241, 206);
     color: rgb(98, 162, 98);
+}
+button:disabled{
+    background-color: white;
 }
 
 button:hover{
