@@ -27,11 +27,21 @@ let actualContentMl = document.querySelector(".actualPercent")
 let actualContentPercent = document.querySelector(".actualPercent")
 let levelPercent = document.querySelector(".progressingPercent")
 
+
+let colorFillin = ["#FF5733","#FFFF33","#88883C","#4DBAE2","#4D62E2",'#68E24D',"#16401C","#FA6D96"]
+
+function randomColorJar() {
+    let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
+    return colorFillin[rainbow]
+}
+
+
 //Addlistener : adding/removing with click 
 allbuttonAdding.forEach(element =>{
     element.addEventListener('click', (adding))
     maxCup=8
     minCup = 0
+    levelPercent.style.backgroundColor=randomColorJar();
 })
 
 allbuttonRemoving.forEach(index => {
@@ -59,7 +69,6 @@ function adding() {
         allbuttonAdding.forEach(element => {
             element.disabled = true
         });
-        levelPercent.style.backgroundColor="green";
         levelPercent.style.width="99%"
         levelPercent.style.borderRadius ="0px 0px 50px 50px"
 

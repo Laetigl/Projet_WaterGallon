@@ -28,7 +28,6 @@ body {
 .actualPercent{
     width: 100%;
     height:10%;
-    border: 2px solid black;
     color:white;
     font-size: 30px;
     display: flex;
@@ -41,8 +40,7 @@ body {
     width: 100%;
     height:12%;
     position: absolute;
-    background-color: coral;
-
+    background-color: red;
 }
 
 h1,p{
