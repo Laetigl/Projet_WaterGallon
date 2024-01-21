@@ -1,6 +1,5 @@
 
 body {
-    width: 100%;
     height: 1050px;
     padding-bottom: 10%;
     background-color: rgb(212, 151, 91);
@@ -16,13 +15,15 @@ body {
     flex-direction: column;
     align-items: center;
     gap:10px;
-    padding-bottom: 10px;
 }
 
 .textWater h1{
     font-size: 45px;
 }
 
+.textWater p{
+    font-size: 20px;
+}
 
 #jar{
     width: 25%;
@@ -136,7 +137,13 @@ p{
     gap:10px;
     flex-direction: column;
     border-radius:0px 0px 40px 40px;
+    transition: 0.3s ease
 }
+
+.ingredients:hover{
+    transform: scale(1.05)
+}
+
 
 .buttons{
     display: flex;
@@ -174,6 +181,11 @@ button:hover{
 
 /* Tablette */
 @media (min-width:426px) and (max-width:768px) {
+    #jar{
+        width: 40%;
+        height: 100%;
+    }
+
     .allJar{
         align-items: center;
     }
@@ -182,6 +194,12 @@ button:hover{
 
 /* Mobile L */
 @media (min-width:376px) and (max-width:425px){
+    .textWater{
+        align-items: center;
+        width: 85%;
+    }
+
+    
     #jar{
         width: 70%;
         height: 100%;
@@ -200,4 +218,38 @@ button:hover{
         width: 80%;
         padding-bottom: 20px;
     }
+}
+
+/* Mobile M */
+@media (max-width:375px){
+    .textWater{
+        align-items: center;
+        width: 80%;
+        height:300px;
+    }
+
+    .textWater h1{
+        text-align: center;
+        font-size: 35px;
+    }
+    
+    #jar{
+        width: 70%;
+        height: 100%;
+    }
+    .allJar{
+        align-items: center;
+    }
+
+    .miniJarOne{
+        flex-wrap: wrap;
+        width: 80%;
+    }
+    
+    .miniJarTwo{
+        flex-wrap: wrap;
+        width: 80%;
+        padding-bottom: 20px;
+    }
+
 }
