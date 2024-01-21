@@ -21,7 +21,7 @@ let levelPercent = document.querySelector(".progressingPercent")
 let remain = document.querySelector(".remainPercent")
 
 //Color blend
-let colorFillin = ["#FF5733","#FFFF33","#88883C","#4DBAE2","#4D62E2",'#68E24D',"#16401C","#FA6D96"]
+let colorFillin = ["#a5f2bf","#d98d3d","d9713d","f28dd5","#b84d6a",'#e3cad6',"#b7caf7","#a2f5f3"]
 
 // function randomColorJar() {
 //     let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
@@ -32,24 +32,18 @@ let colorFillin = ["#FF5733","#FFFF33","#88883C","#4DBAE2","#4D62E2",'#68E24D',"
 //Addlistener : adding/removing with click 
 allbuttonAdding.forEach(element =>{
     element.addEventListener('click', (adding))
+    
     function randomColorJar() {
         let rainbow = Math.floor(Math.random()* colorFillin.length) //getting the index but not the value
         return colorFillin[rainbow]
     }
     levelPercent.style.backgroundColor= randomColorJar()
-    randomColorJar()
 })
 
 allbuttonRemoving.forEach(index => {
     index.addEventListener('click', (removing))
 })
 
-
-// function restant() {
-//     left = 100
-//     remain.innerText = (`${left}` - `${percentIngredient}%`)
-//     return [remain.innerText];
-// }
 
 //Functions : adding / removing
 function adding() {
@@ -61,7 +55,7 @@ function adding() {
     actualContentCup.textContent = `${cupIngredient/8}`;
     actualContentPercent.textContent = `${percentIngredient}%`;
     levelPercent.style.height = `${percentIngredient}%` //assigner la hauteur de la jar de progression au pourcentage ajouté (100% = jar complète)
-    remain.innerText = (`${left}` - `${percentIngredient}`)
+    remain.innerText = (`${left}` - `${percentIngredient}`)+ `%`
     
     console.log(cupIngredient,percentIngredient);
     console.log(remain.innerText);
@@ -71,6 +65,16 @@ function adding() {
             element.disabled = true
         });
         levelPercent.style.width="99%"
+        // levelPercent.innerText="Ready to drink"
+        levelPercent.style.backgroundImage="linear-gradient(to top,rgb(123, 211, 234), rgb(255, 155, 210))"
+        actualContentPercent.textContent=""
+        remain.innerText="100% ready to drink !"
+        remain.style.fontFamily="Arial"
+        remain.style.fontSize="20px"
+        remain.style.color="white"
+        remain.style.paddingTop="40%"
+        remain.style.fontFamily="Josefin Sans', sans-serif"
+
     
     } else {
         allbuttonRemoving.forEach(element => {
@@ -87,7 +91,7 @@ function removing() {
     actualContentCup.textContent = `${cupIngredient/8}`;
     actualContentPercent.textContent = `${percentIngredient}%`;
     levelPercent.style.height = `${percentIngredient}%` //assigner la hauteur de la jar de progression au pourcentage ajouté (100% = jar complète)
-    remain.textContent = `${left}` - `${percentIngredient}`
+    remain.textContent = `${left}` - `${percentIngredient}`+ `%`
 
     console.log(cupIngredient,percentIngredient);
 

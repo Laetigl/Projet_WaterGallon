@@ -1,10 +1,11 @@
 
 body {
     width: 100%;
-    height: 900px;
+    height: 1050px;
     padding-bottom: 10%;
     background-color: rgb(212, 151, 91);
     display: flex;
+    gap:20px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -14,19 +15,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap:10px;
+    padding-bottom: 10px;
 }
 
+.textWater h1{
+    font-size: 45px;
+}
+
+
 #jar{
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap:50%;
-    border: 5px dotted rgba(234, 83, 242, 0.641);
+    border: 5px dotted rgba(105, 30, 109, 0.641);
     border-radius: 0px 0px 47px 47px;
     background-color: rgba(251, 251, 251, 0.721);
     position: relative;
-    box-shadow: 0px 1px 15px 1px rgb(255, 200, 0);
+    box-shadow: 0px 3px 20px 3px rgb(163, 107, 200);
     overflow: hidden; /* hide the element that will go oustide the jar*/
     bottom: 0;
 }
@@ -40,7 +48,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
-
+    transition: 0.3s ease;
 }
 
 .remainPercent{
@@ -52,23 +60,41 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
-
+    transition: 0.3s ease;
 }
 
 .progressingPercent{
     width: 100%;
     position: absolute;
-    background-color: red;
     height: 0;
     bottom: 0;
+    transition: 0.3s ease;
 }
 
 h1{
     color:rgb(247, 241, 219)
 }
+
 h1,p{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
+}
+p{
+    margin: 0;
+}
+.subtitle{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#select{
+    font-size: medium;
+    color: white;
+    font-size:20px ;
+    margin:0;
+    display: flex;
 
 }
 
@@ -78,6 +104,7 @@ h1,p{
     display: flex;
     flex-direction: column;
     gap:10px;
+    padding-bottom: 30px;
 }
 .miniJarOne{
     display: flex;
@@ -88,6 +115,11 @@ h1,p{
 .miniJarTwo{
     display: flex;
     justify-content: center;
+    gap:10px;
+}
+
+.twoByTwo{
+    display: flex;
     gap:10px;
 }
 
@@ -130,4 +162,42 @@ button:disabled{
 button:hover{
     cursor: pointer;
 
+}
+
+/* Laptop */
+@media (min-width:768px) and (max-width:1024px){
+    #jar{
+        width: 40%;
+        height: 100%;
+    }
+    }
+
+/* Tablette */
+@media (min-width:426px) and (max-width:768px) {
+    .allJar{
+        align-items: center;
+    }
+    
+}
+
+/* Mobile L */
+@media (min-width:376px) and (max-width:425px){
+    #jar{
+        width: 70%;
+        height: 100%;
+    }
+    .allJar{
+        align-items: center;
+    }
+
+    .miniJarOne{
+        flex-wrap: wrap;
+        width: 80%;
+    }
+    
+    .miniJarTwo{
+        flex-wrap: wrap;
+        width: 80%;
+        padding-bottom: 20px;
+    }
 }
